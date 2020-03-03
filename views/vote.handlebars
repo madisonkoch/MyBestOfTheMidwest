@@ -1,0 +1,115 @@
+<div class="page-wrapper" style="display:flex;">
+    <div class="votedHalfPage">
+        {{> midwest_map }}
+        <form id="stateForm" method="post" action="/vote" style="display: none;">
+            <input id="stateInput" type="text" name="State" required>
+            <input type="submit" value="Send my Vote!">
+        </form>
+        <h2 style="margin-top: 28px;">Which state trully is the best of the Midwest?</h2>
+        <p>Click a state on the map above to vote.</p>
+    </div>
+    <div class="votedHalfPage" id="stateRanking">
+        <table style="width:100%;">
+            <tbody style="width:100%;">
+                <tr>
+                    <td class="state-table-name">Iowa</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{iowa}}%;">
+                            <h6 class="state-table-votes">{{ia}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Illinois</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{illinois}}%;">
+                            <h6 class="state-table-votes">{{il}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Indiana</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{indiana}}%;">
+                            <h6 class="state-table-votes">{{in}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Ohio</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{ohio}}%;">
+                            <h6 class="state-table-votes">{{oh}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Kansas</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{kansas}}%;">
+                            <h6 class="state-table-votes">{{ks}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Missouri</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{missouri}}%;">
+                            <h6 class="state-table-votes">{{mo}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Minnesota</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{minnesota}}%;">
+                            <h6 class="state-table-votes">{{mn}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Wisconsin</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{wisconsin}}%;">
+                            <h6 class="state-table-votes">{{wi}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">South Dakota</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{southDakota}}%;">
+                            <h6 class="state-table-votes">{{sd}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">North Dakota</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{northDakota}}%;">
+                            <h6 class="state-table-votes">{{nd}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Michigan</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{michigan}}%;">
+                            <h6 class="state-table-votes">{{mi}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">Nebraska</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{nebraska}}%;">
+                            <h6 class="state-table-votes">{{ne}}</h6>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/js/vote.js"></script>

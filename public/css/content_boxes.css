@@ -1,0 +1,81 @@
+/* Card masonry html & css modified based off of Stephen Lee's demo https://codepen.io/abcretrograde/pen/eKOmLP */
+
+ * {
+	 box-sizing: border-box;
+}
+ .container {
+	 width: 100%;
+	 display: grid;
+	 grid-template-columns: repeat(auto-fit, minmax(22vw, 1fr));
+	 grid-auto-rows: 5px;
+	 grid-auto-flow: row dense;
+	 grid-gap: 23px;
+	 overflow-y: scroll;
+     height: 100%;
+}
+ .card {
+	 display: flex;
+	 flex-flow: column nowrap;
+	 height: 100%;
+	 width: 100%;
+	 grid-column: auto / span 1;
+	 background-color: #ffffff;
+}
+ .large {
+	 grid-row: auto / span 16;
+}
+ .carl {
+	grid-row: auto / span 22;
+ }
+ .car {
+	 grid-row: auto / span 12;
+ }
+ .medium {
+	 grid-row: auto / span 15;
+}
+ .small {
+	 grid-row: auto / span 14;
+}
+ .card-image {
+	 width: 100%;
+	 height: 48%;
+	 display: flex;
+	 position: relative;
+}
+.carl-image {
+	width: 100%;
+	height: 65%;
+	display:flex;
+	position: relative;
+}
+
+ .card-image img, .carl-image img {
+	 width: 100%;
+	 object-fit: cover;
+}
+ .card-body {
+	 flex: 1;
+	 padding: 23px;
+	 display: flex;
+	 flex-flow: column nowrap;
+}
+ .card-body button {
+	 min-width: 8.3em;
+	 flex: none;
+	 align-self: flex-start;
+	 margin-top: auto;
+	 padding: 0.6em 1.2em;
+	 font-size: 0.92em;
+	 background: none;
+	 border: 0.5px solid #777;
+	 border-radius: 2px;
+}
+ .card-body button:hover {
+	 border-color: #d099a0;
+}
+ .card-text h3, .card-text p {
+	 margin: 0 0 0.7em 0;
+	 line-height: 1.3em;
+	 color: #345;
+}
+ 

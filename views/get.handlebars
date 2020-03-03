@@ -1,0 +1,21 @@
+<h1>GET Request Received</h1>
+
+<table>
+  <tbody>
+    <tr class="title">
+      <td colspan="2">
+        URL Encoded Data
+      </td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+    {{#each urlData}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.value}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

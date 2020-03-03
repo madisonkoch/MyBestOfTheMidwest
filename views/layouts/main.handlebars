@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	{{!-- Metadata --}}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{{!-- Page Title + Favicon --}}
+	<title>Best of the MidWest</title>
+	<link rel="shortcut icon" href="/images/favicon.png" />
+
+	{{!-- Import Fonts --}}
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway|Oswald&display=swap" rel="stylesheet">
+
+	{{!-- Stylesheets --}}
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/carousel.css">
+	<link rel="stylesheet" href="/css/font.css">
+	<link rel="stylesheet" href="/css/midwest_map.css">
+	<link rel="stylesheet" href="/css/voted.css">
+	<link rel="stylesheet" href="/css/fame.css">
+	<link rel="stylesheet" href="/css/content_boxes.css">
+	<link rel="stylesheet" href="/css/fun.css">
+
+
+	{{!-- Import js --}}
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+</head>
+<body>
+	<header>
+		<table id="header-wrapper">
+			<tbody>
+				<tr>
+					<td id="header-title">
+						<a href="/">
+							<h1 id="home" >Best of the Midwest</h1>
+						</a>
+					</td>
+					<td id="header-item-wrapper">
+						<table>
+							<tbody>
+								<tr>
+									<td class="header-item">
+										<a id="fame" href="/fame">BRAG</a>
+									</td>
+									<td class="header-item">
+										<a id="fun" href="/fun">POKE FUN</a>
+									</td>
+									<td class="header-item">
+										<a id="vote" href="/vote">VOTE</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</header>
+	{{{body}}}
+	{{!-- {{> partialTest }} --}}
+	<script src="/js/main.js"></script>
+</body>
+</html>
