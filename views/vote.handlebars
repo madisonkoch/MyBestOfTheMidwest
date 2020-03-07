@@ -2,7 +2,8 @@
     <div class="votedHalfPage">
         {{> midwest_map }}
         <form id="stateForm" method="post" action="/vote" style="display: none;">
-            <input id="stateInput" type="text" name="State" required>
+            <input id="stateInput" type="text" name="state" required>
+            <input id="stateVoteInput" type="number" name="votes" required>
             <input type="submit" value="Send my Vote!">
         </form>
         <h2 style="margin-top: 28px;">Which state trully is the best of the Midwest?</h2>
@@ -11,99 +12,98 @@
     <div class="votedHalfPage" id="stateRanking">
         <table style="width:100%;">
             <tbody style="width:100%;">
-                <tr>
-                    <td class="state-table-name">Iowa</td>
+                    <td class="state-table-name">{{results.0.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{iowa}}%;">
-                            <h6 class="state-table-votes">{{ia}}</h6>
+                        <div style="width : {{results.0.percent}}%;">
+                            <h6 class="state-table-votes">{{results.0.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Illinois</td>
+                    <td class="state-table-name">{{results.1.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{illinois}}%;">
-                            <h6 class="state-table-votes">{{il}}</h6>
+                        <div style="width : {{results.1.percent}}%;">
+                            <h6 class="state-table-votes">{{results.1.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Indiana</td>
+                    <td class="state-table-name">{{results.2.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{indiana}}%;">
-                            <h6 class="state-table-votes">{{in}}</h6>
+                        <div style="width : {{results.2.percent}}%;">
+                            <h6 class="state-table-votes">{{results.2.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Ohio</td>
+                    <td class="state-table-name">{{results.3.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{ohio}}%;">
-                            <h6 class="state-table-votes">{{oh}}</h6>
+                        <div style="width : {{results.3.percent}}%;">
+                            <h6 class="state-table-votes">{{results.3.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Kansas</td>
+                    <td class="state-table-name">{{results.4.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{kansas}}%;">
-                            <h6 class="state-table-votes">{{ks}}</h6>
+                        <div style="width : {{results.4.percent}}%;">
+                            <h6 class="state-table-votes">{{results.4.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Missouri</td>
+                    <td class="state-table-name">{{results.5.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{missouri}}%;">
-                            <h6 class="state-table-votes">{{mo}}</h6>
+                        <div style="width : {{results.5.percent}}%;">
+                            <h6 class="state-table-votes">{{results.5.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Minnesota</td>
+                    <td class="state-table-name">{{results.6.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{minnesota}}%;">
-                            <h6 class="state-table-votes">{{mn}}</h6>
+                        <div style="width : {{results.6.percent}}%;">
+                            <h6 class="state-table-votes">{{results.6.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Wisconsin</td>
+                    <td class="state-table-name">{{results.7.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{wisconsin}}%;">
-                            <h6 class="state-table-votes">{{wi}}</h6>
+                        <div style="width : {{results.7.percent}}%;">
+                            <h6 class="state-table-votes">{{results.7.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">South Dakota</td>
+                    <td class="state-table-name">{{results.8.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{southDakota}}%;">
-                            <h6 class="state-table-votes">{{sd}}</h6>
+                        <div style="width : {{results.8.percent}}%;">
+                            <h6 class="state-table-votes">{{results.8.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">North Dakota</td>
+                    <td class="state-table-name">{{results.9.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{northDakota}}%;">
-                            <h6 class="state-table-votes">{{nd}}</h6>
+                        <div style="width : {{results.9.percent}}%;">
+                            <h6 class="state-table-votes">{{results.9.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Michigan</td>
+                    <td class="state-table-name">{{results.10.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{michigan}}%;">
-                            <h6 class="state-table-votes">{{mi}}</h6>
+                        <div style="width : {{results.10.percent}}%;">
+                            <h6 class="state-table-votes">{{results.10.votes}}</h6>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="state-table-name">Nebraska</td>
+                    <td class="state-table-name">{{results.11.fullname}}</td>
                     <td class="state-table-vote-bar">
-                        <div style="width : {{nebraska}}%;">
-                            <h6 class="state-table-votes">{{ne}}</h6>
+                        <div style="width : {{results.11.percent}}%;">
+                            <h6 class="state-table-votes">{{results.11.votes}}</h6>
                         </div>
                     </td>
                 </tr>

@@ -1,17 +1,17 @@
 // Listen for state being clicked
 var states = document.getElementsByClassName("stateSVG");
 var stateInput = document.getElementById("stateInput");
+var stateVoteInput = document.getElementById("stateVoteInput");
 var stateForm = document.getElementById("stateForm");
 
 var voteForState = function() {
-    // Grab abbreviation of state being clicked
+    // Grab abbreviation + votes of state being clicked
     var chosenState = this.getAttribute("id");
+    var chosenStateVotes = parseInt(this.getAttribute("data-votes")) + 1;
     
-    // Put state abbreviation in hidden form
+    // Put state abbreviation + votes in hidden form
     stateInput.value = chosenState;
-
-    // Update action url
-    //stateForm.action += ("/" + chosenState);
+    stateVoteInput.value = chosenStateVotes;
 
     // Submit vote
     stateForm.submit();

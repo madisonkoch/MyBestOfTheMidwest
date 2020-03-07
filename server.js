@@ -19,125 +19,44 @@ app.set('view engine', 'handlebars');
 app.set('port', 3000)
 //app.set('port', process.argv[2]);
 
-// Set up MongoDB (code from MongoDB docs)
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+// Connect to MySQL database
 
-// // Connection URL
-const url = 'mongodb://localhost:27017';
-
-// // Database Name
-const dbName = 'OSU-MidwestBestVotes';
-
-// Create a new MongoClient
-const client = new MongoClient(url, { useNewUrlParser: true });
-
-// Use connect method to connect to the server
-// client.connect(function (err) {
-//   assert.equal(null, err);
-//   console.log("Connected successfully to server");
-
-//   const db = client.db(dbName);
-
-// insertVotes(db, function () {
-//   client.close();
+// var mysql = require('mysql');
+// var pool = mysql.createPool({
+//   host  : 'oniddb.cws.oregonstate.edu',
+//   user  : 'kochmad-db',
+//   password: 'E8uXTzwFO3ZrjMtB',
+//   database: 'kochmad-db'
 // });
 
-// updateVotes(db, stateSelection, function() {
-//   client.close();
-// })
+var mysql = require('mysql');
+var pool = mysql.createPool({
+  host  : 'y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  user  : 'mc85gdvobt6hg0wf',
+  password: 'z0qw5rsrnoa2cuj1',
+  database: 'xkllsej1hmyxpxce'
+});
 
-// addVote(db, stateSelection, function () {
-//   client.close();
-// })
-
-// findVotes(db, function () {
-//   client.close();
+// var mysql = require('mysql');
+// var pool = mysql.createPool({
+//   host  : 'localhost',
+//   user  : 'student',
+//   password: 'default',
+//   database: 'student'
 // });
 
-//});
+// Database table [BestOfTheMidwest_Votes] was created on OSU web platform
+// Columns: state, votes
 
-
-// Insert original data into collection
-const insertVotes = function (db, callback) {
-  // Get state vote collection
-  const collection = db.collection('StateVotes');
-
-  // Check if collection is empty
-  collection.count(function (err, count) {
-    console.dir(err);
-    console.dir(count);
-
-    if (count == 0) {
-      // Insert some votes into collection
-      collection.insertMany([
-        { state: "IA", votes: 0 , fullname : "Iowa"},
-        { state: "IL", votes: 0 , fullname : "Illinois"},
-        { state: "IN", votes: 0 , fullname : "Indiana"},
-        { state: "OH", votes: 0 , fullname : "Ohio"},
-        { state: "KS", votes: 0 , fullname : "Kansas"},
-        { state: "MO", votes: 0 , fullname : "Missouri"},
-        { state: "MN", votes: 0 , fullname : "Minnesota"},
-        { state: "WI", votes: 0 , fullname : "Wisconsin"},
-        { state: "SD", votes: 0 , fullname : "South Dakota"},
-        { state: "ND", votes: 0 , fullname : "North Dakota"},
-        { state: "MI", votes: 0 , fullname : "Michigan"},
-        { state: "NE", votes: 0 , fullname : "Nebraska"}
-      ], function (err, result) {
-        assert.equal(err, null);
-        assert.equal(12, result.result.n);
-        assert.equal(12, result.ops.length);
-        console.log("Inserted 12 states into the collection");
-        callback(result);
-      });
-
-    }
-  });
-};
 
 // FIND ALL
-const findVotes = function (db, callback) {
-  // Get state vote collection
-  const collection = db.collection('StateVotes');
-
-  collection.find({}).toArray(function (err, result) {
-    if (err) throw err;
-    console.log(result);
-  });
-};
-
-var async_Voting = function(db, stateSelection){
-  addVote(db, stateSelection, console.log("Vote added"));
-  findVotes(db, console.log(""));
-};
+const findVotes = function () {};
 
 // Add Vote to DB
-const addVote = function (db, stateSelection, callback) {
-    // Find current number of votes
-    db.collection('StateVotes').find({ state: stateSelection }).toArray(function (err, result) {
-      if (err) throw err;
-      result = result[0];
-      console.log(result.votes);
-
-      // Add vote to state
-      updateVotes(db, stateSelection, result.votes, function () {
-        client.close();
-      })
-    })
-};
+const addVote = function () {};
 
 // UPDATE DB
-const updateVotes = function (db, stateSelection, stateVotes, callback) {
-  var addToVotes = stateVotes + 1;
-  var myquery = { state: stateSelection };
-  var newvalues = { $set: { votes: addToVotes } };
-
-  db.collection('StateVotes').updateOne(myquery, newvalues, function (err, res) {
-    if (err) throw err;
-  });
-};
-
-
+const updateVotes = function () {};
 
 // ROUTES //
 // Home
@@ -147,71 +66,40 @@ app.get('/', function (req, res) {
 
 // Vote
 app.post('/vote', function(req, res){
-  client.connect(function (err) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-
-    const db = client.db(dbName);
-
-    async_Voting(db, req.body.State);
+  console.log("hit post vote");
+  var voteData = {};
+  pool.query("UPDATE BestOfTheMidwest_Votes SET votes=? WHERE state=? ",
+    [req.body.votes, req.body.state],
+    function(err, result){
+    if(err){
+      console.log(err);
+      return;
+    }
+    console.log(req.body);
+    voteData.results = "Updated " + result.changedRows + " rows.";
+    res.redirect('/vote');
   });
-
-  return res.redirect('/vote');
 });
 
 
 app.get('/vote', function (req, res) {
-  client.connect(function (err) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
 
-    const db = client.db(dbName);
-
-    const collection = db.collection('StateVotes');
-
-    collection.find({}).toArray(function (err, result) {
-      if (err) {
-        throw err;
-      } else {
-        var voteMax = 0;
-        for( var v=0; v < 12; v++){
-          if(result[v].votes > voteMax ){
-            voteMax = result[v].votes;
-          }
-        }
-
-        var dataObj = {
-          iowa : parseInt((result[0].votes/voteMax)*100,10),
-          illinois : parseInt((result[1].votes/voteMax)*100,10),
-          indiana : parseInt((result[2].votes/voteMax)*100,10),
-          ohio : parseInt((result[3].votes/voteMax)*100,10),
-          kansas : parseInt((result[4].votes/voteMax)*100,10),
-          missouri : parseInt((result[5].votes/voteMax)*100,10),
-          minnesota : parseInt((result[6].votes/voteMax)*100,10),
-          wisconsin : parseInt((result[7].votes/voteMax)*100,10),
-          southDakota : parseInt((result[8].votes/voteMax)*100,10),
-          northDakota : parseInt((result[9].votes/voteMax)*100,10),
-          michigan : parseInt((result[10].votes/voteMax)*100,10),
-          nebraska : parseInt((result[11].votes/voteMax)*100,10),
-
-          ia : result[0].votes,
-          il : result[1].votes,
-          in : result[2].votes,
-          oh : result[3].votes,
-          ks : result[4].votes,
-          mo : result[5].votes,
-          mn : result[6].votes,
-          wi : result[7].votes,
-          sd : result[8].votes,
-          nd : result[9].votes,
-          mi : result[10].votes,
-          ne : result[11].votes,
-        };
-
-        res.render('vote', dataObj);
+  // For all states get # of votes and % of total votes
+  var dataObj = {};
+    var queryAsString = "SELECT	*,(SELECT MAX(votes) FROM BestOfTheMidwest_Votes) AS maxVotes, CASE WHEN (SELECT MAX(votes) FROM BestOfTheMidwest_Votes) <> 0 THEN CAST(((votes / (SELECT MAX(votes) FROM BestOfTheMidwest_Votes))*100) as unsigned) ELSE 0 END AS percent FROM BestOfTheMidwest_Votes";
+    pool.query(queryAsString, function(err, rows, fields){
+      if(err){
+        console.log("Location app.get('/vote'): " + err);
+        return;
       }
-    });
-  });
+      dataObj.results = JSON.stringify(rows);
+      dataObj.results = JSON.parse(dataObj.results);
+      //console.log(dataObj);
+      //console.log(dataObj.results);
+
+      //console.log(dataObj.results[0]);
+      res.render('vote', dataObj);
+    })
 });
 
 // Fame
