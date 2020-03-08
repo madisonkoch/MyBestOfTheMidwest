@@ -5,7 +5,7 @@
 }
 
 .youtube-wrapper {
-    width: 50vw;
+    width: 60%;
     overflow-x: hidden;
     overflow-y: scroll;
     margin-top: 10px;
@@ -13,11 +13,11 @@
 }
 
 .twitter-wrapper {
-    width: 30vw;
+    width: 40%;
     overflow-x: hidden;
     overflow-y: scroll;
     margin-top: 10px;
-    margin-left: 16vw;
+    margin-left: 20px;
     height: 75vh;
 }
 
