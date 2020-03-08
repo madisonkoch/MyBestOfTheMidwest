@@ -37,31 +37,13 @@ var pool = mysql.createPool({
   database: 'xkllsej1hmyxpxce'
 });
 
-// var mysql = require('mysql');
-// var pool = mysql.createPool({
-//   host  : 'localhost',
-//   user  : 'student',
-//   password: 'default',
-//   database: 'student'
-// });
-
 // Database table [BestOfTheMidwest_Votes] was created on OSU web platform
 // Columns: state, votes
-
-
-// FIND ALL
-const findVotes = function () {};
-
-// Add Vote to DB
-const addVote = function () {};
-
-// UPDATE DB
-const updateVotes = function () {};
 
 // ROUTES //
 // Home
 app.get('/', function (req, res) {
-  res.render('home');
+  res.render('./home');
 });
 
 // Vote
@@ -98,18 +80,18 @@ app.get('/vote', function (req, res) {
       //console.log(dataObj.results);
 
       //console.log(dataObj.results[0]);
-      res.render('vote', dataObj);
+      res.render('./vote', dataObj);
     })
 });
 
 // Fame
 app.get('/fame', function (req, res) {
-  res.render('fame');
+  res.render('./fame');
 });
 
 // Fun
 app.get('/fun', function (req, res) {
-  res.render('fun');
+  res.render('./fun');
 });
 
 
