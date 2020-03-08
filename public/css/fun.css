@@ -6,30 +6,35 @@
 
 .youtube-wrapper {
     width: 60%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
     margin-top: 10px;
     height: 75vh;
+    position: relative;
 }
 
 .twitter-wrapper {
     width: 40%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
     margin-top: 10px;
     margin-left: 20px;
     height: 75vh;
+    position: relative;
 }
 
 .youtube-box {
     width: 100%;
-    height: fit-content;
+    right: -20px;
+    position: absolute;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .twitter-box {
     width: 100%;
-    height: fit-content;
-    padding-right: 5px;
+    right: -20px;
+    position: absolute;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .youtube-box iframe:not(:first),
