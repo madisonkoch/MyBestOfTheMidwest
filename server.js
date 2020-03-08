@@ -16,19 +16,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'handlebars');
 
 // Set port
-app.set('port', 3000)
-//app.set('port', process.argv[2]);
+app.listen(process.env.PORT || 3000);
 
 // Connect to MySQL database
-
-// var mysql = require('mysql');
-// var pool = mysql.createPool({
-//   host  : 'oniddb.cws.oregonstate.edu',
-//   user  : 'kochmad-db',
-//   password: 'E8uXTzwFO3ZrjMtB',
-//   database: 'kochmad-db'
-// });
-
 var mysql = require('mysql');
 var pool = mysql.createPool({
   host  : 'y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
@@ -43,7 +33,7 @@ var pool = mysql.createPool({
 // ROUTES //
 // Home
 app.get('/', function (req, res) {
-  res.render('./home');
+  res.render('home');
 });
 
 // Vote
