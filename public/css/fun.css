@@ -1,15 +1,24 @@
 .fun-wrapper {
-    height: 90vh;
+    height: 80vh;
     width: 96vw;
+    display: inline-flex;
 }
 
-.youtube-wrapper,
-.twitter-wrapper {
-    height: fit-content;
-    width: 48vw;
+.youtube-wrapper {
+    width: 50vw;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-top: 10px;
+    margin-top: 10px;
+    height: 75vh;
+}
+
+.twitter-wrapper {
+    width: 30vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-top: 10px;
+    margin-left: 16vw;
+    height: 75vh;
 }
 
 .youtube-box {
