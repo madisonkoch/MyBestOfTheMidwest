@@ -1,3 +1,8 @@
+.fun-wrapper {
+    height: 90vh;
+    width: 96vw;
+}
+
 .youtube-wrapper,
 .twitter-wrapper {
     height: fit-content;
