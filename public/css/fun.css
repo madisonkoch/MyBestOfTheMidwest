@@ -35,6 +35,7 @@
     position: absolute;
     height: 80vh;
     overflow-y: scroll;
+    padding-right: 5px;
 }
 
 .youtube-box iframe:not(:first),
