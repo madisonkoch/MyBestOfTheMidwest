@@ -17,6 +17,7 @@ app.set('view engine', 'handlebars');
 
 // Set port
 app.listen(process.env.PORT || 3000);
+// app.set('port', process.argv[2]);
 
 // Connect to MySQL database
 var mysql = require('mysql');
