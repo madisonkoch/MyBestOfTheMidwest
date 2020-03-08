@@ -1,0 +1,25 @@
+.youtube-wrapper,
+.twitter-wrapper {
+    height: fit-content;
+    width: 96vw;
+    overflow-x: scroll;
+    padding-top: 10px;
+}
+
+.youtube-box {
+    width: fit-content;
+    height: 325px;
+    display: inline-flex;
+}
+
+.twitter-box {
+    width: fit-content;
+    height: 280px;
+    display: inline-flex;
+}
+
+iframe:not(:first-of-type),
+twitter-widget:not(:first-of-type) {
+    margin-left: 2vw;
+}
+

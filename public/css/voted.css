@@ -1,0 +1,39 @@
+#stateRanking {
+    padding-top: 6vh;
+    padding-left: 3vw;
+}
+
+.votedHalfPage:nth-of-type(2) {
+    width: 35vw;
+}
+
+.votedHalfPage:first {
+    width: 48vw;
+}
+
+.state-table-name {
+    text-align: right;
+    width: 125px;
+    vertical-align: bottom;
+}
+
+.state-table-vote-bar {
+    min-width: 20vw;
+    padding-bottom: 7px;
+    height: unset;
+    font-size: 1.5vh;
+}
+
+.state-table-vote-bar div {
+    margin-top: 13px;
+    width: 66%;
+    background-color: gold;
+}
+
+.state-table-votes {
+    font-family: 'Raleway';
+    color: #191919;
+    text-align: right;
+    padding-right: 5px;
+    padding-bottom: 1px;
+}

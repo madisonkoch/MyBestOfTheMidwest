@@ -1,0 +1,73 @@
+:root {
+    --primary: #ffffff;
+    --accent: gold;
+}
+
+h1 {
+    color: var(--primary);
+    margin: unset;
+    vertical-align: bottom;
+    font-family: 'Permanent Marker';
+    font-size: -webkit-xxx-large;
+}
+
+h2 {
+    color: var(--accent);
+    margin: unset;
+    vertical-align: bottom;
+    font-family: 'Permanent Marker';
+}
+
+h3 {
+    font-family: 'Oswald';
+}
+
+.PC {
+    position: absolute;
+    bottom: 2px;
+    color: white;
+    font-size: 10px;
+    right: 2px;
+}
+
+button {
+    font-family: 'Raleway';
+}
+
+a , a h1{
+    color:var(--primary);
+    text-decoration: none;
+}
+
+a:hover , #home:hover{
+    color: var( --accent);
+}
+
+p {
+    font-family: 'Raleway';
+    color: var(--primary);
+}
+
+li {
+    font-family: 'Raleway';
+    color: black;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+h6 {
+    font-family: 'Raleway';
+    color: var(--primary);
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+}
+
+td {
+    color: var(--primary);
+    vertical-align: baseline;
+    font-family: 'Oswald';
+    font-size: x-large;
+}

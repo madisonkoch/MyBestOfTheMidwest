@@ -1,0 +1,56 @@
+html {
+    background-color: #191919;
+}
+
+body {
+    margin: unset;
+    height: 100vh;
+    background-image: url('/images/home_shuffle/generic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+}
+
+#header-wrapper {
+    padding: 0 2vw;
+    margin: 0;
+    width: 100vw;
+    height: 50px;
+}
+
+#header-title {
+    float:left;
+}
+
+#header-item-wrapper {
+    float: right;
+}
+
+#header-item-wrapper table {
+    width:28vw;
+}
+
+.header-item {
+    width:30%;
+    text-align: center;
+    padding-top: 25px;
+    min-width: 90px;
+} 
+
+.page-wrapper {
+    padding: 80px 2vw 0;
+    height: 100vh;
+    background-color: #000000ad;
+}
+
+.page-caption {
+    position: absolute;
+    bottom: 0;
+    left: 2vw;
+}

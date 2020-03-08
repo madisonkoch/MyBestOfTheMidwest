@@ -1,0 +1,115 @@
+<div class="page-wrapper" style="display:flex;">
+    <div class="votedHalfPage">
+        {{> midwest_map }}
+        <form id="stateForm" method="post" action="/vote" style="display: none;">
+            <input id="stateInput" type="text" name="state" required>
+            <input id="stateVoteInput" type="number" name="votes" required>
+            <input type="submit" value="Send my Vote!">
+        </form>
+        <h2 style="margin-top: 28px;">Which state trully is the best of the Midwest?</h2>
+        <p>Click a state on the map above to vote.</p>
+    </div>
+    <div class="votedHalfPage" id="stateRanking">
+        <table style="width:100%;">
+            <tbody style="width:100%;">
+                    <td class="state-table-name">{{results.0.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.0.percent}}%;">
+                            <h6 class="state-table-votes">{{results.0.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.1.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.1.percent}}%;">
+                            <h6 class="state-table-votes">{{results.1.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.2.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.2.percent}}%;">
+                            <h6 class="state-table-votes">{{results.2.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.3.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.3.percent}}%;">
+                            <h6 class="state-table-votes">{{results.3.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.4.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.4.percent}}%;">
+                            <h6 class="state-table-votes">{{results.4.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.5.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.5.percent}}%;">
+                            <h6 class="state-table-votes">{{results.5.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.6.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.6.percent}}%;">
+                            <h6 class="state-table-votes">{{results.6.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.7.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.7.percent}}%;">
+                            <h6 class="state-table-votes">{{results.7.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.8.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.8.percent}}%;">
+                            <h6 class="state-table-votes">{{results.8.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.9.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.9.percent}}%;">
+                            <h6 class="state-table-votes">{{results.9.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.10.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.10.percent}}%;">
+                            <h6 class="state-table-votes">{{results.10.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="state-table-name">{{results.11.fullname}}</td>
+                    <td class="state-table-vote-bar">
+                        <div style="width : {{results.11.percent}}%;">
+                            <h6 class="state-table-votes">{{results.11.votes}}</h6>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/js/vote.js"></script>
